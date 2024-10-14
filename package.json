@@ -41,14 +41,31 @@
     "testEnvironment": "node"
   },
   "scripts": {
+    // Start the production server after building the application
     "start": "npm run build && npm run prod",
+
+    // Build the application by cleaning the dist-server and transpiling
     "build": "npm run clean && npm run transpile",
+
+    // Run the server from the transpiled code in the dist-server folder
     "server": "node ./dist-server/bin/www",
+
+    // Development server with NODE_ENV set to development
     "dev": "NODE_ENV=development npm run server",
+
+    // Production server with NODE_ENV set to production
     "prod": "NODE_ENV=production npm run server",
+
+    // Transpile the ES6 code from the server folder to the dist-server folder
     "transpile": "babel ./server --out-dir dist-server",
+
+    // Clean the dist-server folder before building
     "clean": "rm -rf dist-server",
+
+    // Watch for file changes during development
     "watch:dev": "nodemon",
+
+    // Run the test suite using Jest
     "test": "jest"
   }
 }
